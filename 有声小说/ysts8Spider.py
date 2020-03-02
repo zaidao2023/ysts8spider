@@ -1,7 +1,5 @@
 """
 @author:qh
-@datetime:2019-3-5
-@mood:<(*￣▽￣*)/
 """
 
 # import time
@@ -43,7 +41,6 @@ class Ysts8(object):
         en = self.app.children['en']
         if en:
             keyword = quote(en.get(), encoding='gb2312').upper()
-            """%B6%B7%C2%DE%B4%F3%C2%BD"""
             def parse_page(page_num=1):
                 url = 'https://www.ysts8.com/Ys_so.asp?stype=1&keyword={}&page={}'.format(keyword, page_num)
                 res = requests.get(url, headers={'User-Agent': UserAgent(verify_ssl=False).random, 'Host': 'www.ysts8.com'}).content.decode('gb2312', errors='ignore')
@@ -217,8 +214,9 @@ class Ysts8(object):
         self.app.mainloop()
 
 
-new_app = Ysts8()
-new_app.main()
+if __name__ == '__main__':
+    new_app = Ysts8()
+    new_app.main()
 
 
 
